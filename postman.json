@@ -1,0 +1,396 @@
+{
+  "info": {
+    "_postman_id": "75c85067-9ad3-499a-8128-9b2fd9e7b42f",
+    "name": "stratixaa-blog",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "26185473"
+  },
+  "item": [
+    {
+      "name": "createblog",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"slug\": \"sample\",\n  \"title\": \"Sample\",\n  \"shortTitle\": \"Sample\",\n  \"content\": \"This is the plain-text content of the blog.\",\n  \"excerpt\": \"A short excerpt for listing pages.\",\n  \"category\": \"category2\",\n  \"date\": \"2026-03-09\",\n  \"author\": \"Navee\",\n  \"img\": \"https://example.com/image.png\",\n  \"tags\": [\n    \"example\",\n    \"blog\"\n  ],\n  \"fullContent\": {\n    \"introduction\": \"This is an intro section.\",\n    \"sections\": [\n      {\n        \"heading\": \"Getting started\",\n        \"content\": \"Step-by-step details go here.\"\n      },\n      {\n        \"heading\": \"Next steps\",\n        \"content\": \"More detailed content in this section.\"\n      }\n    ],\n    \"quote\": \"A helpful quote.\",\n    \"conclusion\": \"This is the conclusion.\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BaseURL}}/blog",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "blog"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"slug\": \"sample\",\n  \"title\": \"Sample\",\n  \"shortTitle\": \"Sample\",\n  \"content\": \"This is the plain-text content of the blog.\",\n  \"excerpt\": \"A short excerpt for listing pages.\",\n  \"category\": \"category2\",\n  \"date\": \"2026-03-09\",\n  \"author\": \"Navee\",\n  \"img\": \"https://example.com/image.png\",\n  \"tags\": [\n    \"example\",\n    \"blog\"\n  ],\n  \"fullContent\": {\n    \"introduction\": \"This is an intro section.\",\n    \"sections\": [\n      {\n        \"heading\": \"Getting started\",\n        \"content\": \"Step-by-step details go here.\"\n      },\n      {\n        \"heading\": \"Next steps\",\n        \"content\": \"More detailed content in this section.\"\n      }\n    ],\n    \"quote\": \"A helpful quote.\",\n    \"conclusion\": \"This is the conclusion.\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BaseURL}}/blog/68ce81e01e04adad0ae8aa82",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "blog",
+            "68ce81e01e04adad0ae8aa82"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetById",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseURL}}/blog/68ce81e01e04adad0ae8aa82",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "blog",
+            "68ce81e01e04adad0ae8aa82"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetAllBlogs",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseURL}}/blog?page=1&limit=10",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "blog"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            },
+            {
+              "key": "search",
+              "value": "ram",
+              "disabled": true
+            },
+            {
+              "key": "category",
+              "value": "category2",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "deleteblog",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{BaseURL}}/blog/68ce81e01e04adad0ae8aa82",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "blog",
+            "68ce81e01e04adad0ae8aa82"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetGroupBlog",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseURL}}/blog-group?page=1&limit=10",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "blog-group"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Adminlogin",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\":\"prathyumnan80@gmail.com\",\r\n    \"password\" : \"Yadh@123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BaseURL}}/adminlogin",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "adminlogin"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "adminvalidate",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseURL}}/adminvalidate",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "adminvalidate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "admin logout",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{BaseURL}}/adminlogout",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "adminlogout"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Presigned URL",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5hdmVlbnJhamEyMzEwQGdtYWlsLmNvbSIsImV4cCI6MTc1ODcyNTc0MH0.K2_4qFmh50cgu5TGzGdYhOKqE1GHtRpC4W4GCljWj14",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{BaseURL}}/aws/presigned-url",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "aws",
+            "presigned-url"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "binary/octet-stream",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "file",
+          "file": {
+            "src": "/C:/Users/navee/Downloads/robotics.jpeg"
+          }
+        },
+        "url": {
+          "raw": "https://yadhronics-blogs-gallery.s3.ap-south-1.amazonaws.com/object-1758639612117145100?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=AKIA5L3GTSZNKLZHKEQU%2F20250923%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250923T150012Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=0592d4e01c0cf2e21c385245aab8b1c77ae9accd01e166efab4bf798169cf3ca&Content-Type=binary/octet-stream",
+          "protocol": "https",
+          "host": [
+            "yadhronics-blogs-gallery",
+            "s3",
+            "ap-south-1",
+            "amazonaws",
+            "com"
+          ],
+          "path": [
+            "object-1758639612117145100"
+          ],
+          "query": [
+            {
+              "key": "X-Amz-Algorithm",
+              "value": "AWS4-HMAC-SHA256"
+            },
+            {
+              "key": "X-Amz-Checksum-Mode",
+              "value": "ENABLED"
+            },
+            {
+              "key": "X-Amz-Credential",
+              "value": "AKIA5L3GTSZNKLZHKEQU%2F20250923%2Fap-south-1%2Fs3%2Faws4_request"
+            },
+            {
+              "key": "X-Amz-Date",
+              "value": "20250923T150012Z"
+            },
+            {
+              "key": "X-Amz-Expires",
+              "value": "900"
+            },
+            {
+              "key": "X-Amz-SignedHeaders",
+              "value": "host"
+            },
+            {
+              "key": "x-id",
+              "value": "GetObject"
+            },
+            {
+              "key": "X-Amz-Signature",
+              "value": "0592d4e01c0cf2e21c385245aab8b1c77ae9accd01e166efab4bf798169cf3ca"
+            },
+            {
+              "key": "Content-Type",
+              "value": "binary/octet-stream",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all blog category",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseURL}}/blog-category",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "blog-category"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CreatePassword",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"password\" : \"Yadh@123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BaseURL}}/createpassword",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "createpassword"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "BaseURL",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
