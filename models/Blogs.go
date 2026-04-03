@@ -53,7 +53,7 @@ type BlogSection struct {
 }
 
 type BlogPost struct {
-	ID          string      `json:"id" bson:"id"`
+	ID          string      `json:"id" bson:"_id,omitempty"`
 	Slug        string      `json:"slug" bson:"slug"`
 	Title       string      `json:"title" bson:"title"`
 	ShortTitle  string      `json:"shortTitle" bson:"shortTitle"`

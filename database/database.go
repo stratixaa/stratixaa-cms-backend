@@ -24,8 +24,7 @@ func InitDB(config settings.Configuration) error {
 		return err
 	}
 
-	// blogs := models.Blogs{}
-	// Blogs = client.Database(config.DB_NAME).Collection(blogs.TableName())
+	Blogs = client.Database(config.DB_NAME).Collection("blogs")
 
 	CMS = client.Database(config.DB_NAME).Collection("cms")
 
