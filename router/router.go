@@ -20,16 +20,17 @@ func GetRouter() *fiber.App {
 		AllowHeaders: "Origin, Content-Type, Accept, Authorization",
 	}))
 
-	// app.Post("/blog", middleware.JWTMiddleware(), controller.CreateBlog)
-	// app.Put("/blog/:id", middleware.JWTMiddleware(), controller.UpdateBlog)
-	// app.Delete("/blog/:id", middleware.JWTMiddleware(), controller.DeleteBlog)
+	app.Post("/blog", controller.CreateBlog)
+	app.Put("/blog/:id", controller.UpdateBlog)
+	app.Delete("/blog/:id", controller.DeleteBlog)
 
-	// app.Get("/blog/:id", controller.GetBlogById)
-	// app.Get("/blog", controller.GetAllBlogs)
-	// app.Get("/blog-group", controller.GetBlogGroup)
-	// app.Get("/blog-category", controller.GetAllCategories)
+	app.Get("/blog/:id", controller.GetBlogById)
+	app.Get("/blog", controller.GetAllBlogs)
+	app.Get("/blog-group", controller.GetBlogGroup)
+	app.Get("/blog-category", controller.GetAllCategories)
 
 	app.Get("/cms", controller.GetCMSData)
+	app.Put("/cms", controller.UpdateCMSData)
 
 	app.Post("/adminlogin", controller.AdminLogin)
 	app.Post("/createpassword", controller.AdminCreatePassword)

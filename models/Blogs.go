@@ -65,6 +65,9 @@ type BlogPost struct {
 	Img         string      `json:"img" bson:"img"`
 	Tags        []string    `json:"tags" bson:"tags"`
 	FullContent BlogSection `json:"fullContent" bson:"fullContent"`
+	Status      string      `json:"status" bson:"status"`
+	CreatedAt   time.Time   `json:"createdAt,omitempty" bson:"createdAt,omitempty"`
+	UpdatedAt   time.Time   `json:"updatedAt,omitempty" bson:"updatedAt,omitempty"`
 }
 
 type BlogPage struct {
