@@ -16,12 +16,39 @@ import (
 )
 
 func AwsPresignedURL(c *fiber.Ctx) error {
-	objectKey := fmt.Sprintf("object-%d", time.Now().UnixNano())
+	allowedExtensions := map[string]bool{
+		"png":  true,
+		"jpg":  true,
+		"jpeg": true,
+		"svg":  true,
+	}
+
+	fileExt := c.Query("ext") // or from filename
+	if !allowedExtensions[fileExt] {
+		return c.Status(http.StatusBadRequest).JSON(response.ErrorResponse{
+			ApiPath:      c.OriginalURL(),
+			ErrorCode:    http.StatusBadRequest,
+			ErrorMessage: "Invalid file type. Only png, jpg, jpeg, svg allowed",
+			ErrorTime:    time.Now(),
+		})
+	}
+
+	contentTypeMap := map[string]string{
+		"png":  "image/png",
+		"jpg":  "image/jpeg",
+		"jpeg": "image/jpeg",
+		"svg":  "image/svg+xml",
+	}
+
+	contentType := contentTypeMap[fileExt]
+
+	objectKey := fmt.Sprintf("object-%d.%s", time.Now().UnixNano(), fileExt)
 
 	presignedURL, err := awssettings.PreSignedURL.PresignPutObject(context.TODO(),
 		&s3.PutObjectInput{
-			Bucket: aws.String(settings.Config.AWS.BucketName),
-			Key:    aws.String(objectKey),
+			Bucket:      aws.String(settings.Config.AWS.BucketName),
+			Key:         aws.String(objectKey),
+			ContentType: aws.String(contentType),
 		},
 		s3.WithPresignExpires(15*time.Minute),
 	)
