@@ -135,9 +135,6 @@ func GetAllBlogs(ctx context.Context, limit, offset int64, search, category, sta
 		findOptions.SetSkip(int64(offset))
 	}
 
-	// Exclude some large fields from the result
-	findOptions.SetProjection(bson.M{"content": 0, "fullContent": 0})
-
 	cursor, err := database.Blogs.Find(ctx, filter, findOptions)
 	if err != nil {
 		return nil, 0, err
